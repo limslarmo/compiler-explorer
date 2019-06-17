@@ -24,6 +24,7 @@
 "use strict";
 
 require("monaco-loader")().then(function () {
+    console.log("work");
     require('popper.js');
     require('bootstrap');
     require('bootstrap-slider');

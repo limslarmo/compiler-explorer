@@ -29,6 +29,8 @@ var loadSaveLib = require('../loadSave');
 var FontScale = require('../fontscale');
 var Components = require('../components');
 var monaco = require('../monaco');
+var monacoVim = require('../../node_modules/monaco-vim/dist/monaco-vim');
+// import { initVimMode } from '../node_modules/monaco-vim';
 var options = require('../options');
 var Alert = require('../alert');
 var local = require('../local');
@@ -104,6 +106,8 @@ function Editor(hub, state, container) {
         autoIndent: true
     });
     this.editor.getModel().setEOL(monaco.editor.EndOfLineSequence.LF);
+    
+    const vimMode = monacoVim.initVimMode(this.editor, document.getElementById('navbarContent'))
 
     if (state.source !== undefined) {
         this.setSource(state.source);
